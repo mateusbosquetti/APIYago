@@ -28,11 +28,9 @@ class UserController {
 
     atualizarUsuario(request, response) {
         const id = request.params;
-        console.log("ID "+id);
         const {nome} = request.body;
-        console.log("NOME "+nome);
 
-        database.where({id:id}).update({nome:nome}).table("usuario").then(data=>{
+        database.where({id:id.id}).update({nome:nome}).table("usuario").then(data=>{
             response.json({message:"Usuário atualizado com sucesso"})
         }).catch(error=>{
             response.json(error);
@@ -41,9 +39,8 @@ class UserController {
 
     removerTarefa(request, response){
         const id = request.params;
-        //O ERRO É NO SEGUNDO ID
-        //ele nao consegue verificar porque o id é um objeto
-        database.where({id:id}).del().table("usuario").then(data=>{
+
+        database.where({id:id.id}).del().table("usuario").then(data=>{
             response.json({message:"Usuario removido com sucesso"})
         }).catch(error=>{
             response.json(error);
