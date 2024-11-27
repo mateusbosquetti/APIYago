@@ -13,6 +13,7 @@ router.delete('/deletar/usuario/:id', UserController.removerTarefa)
 router.get('/imagens', ImageController.listarImagem);
 router.post('/novaImagem', ImageController.novaImagem);
 router.put('/atualizar/imagem/:id', ImageController.atualizarImagem);
+router.get('/imagem/:id', ImageController.buscarImagemPeloID);
 router.delete('/deletar/imagem/:id', ImageController.removerImagem);
 
 module.exports = router

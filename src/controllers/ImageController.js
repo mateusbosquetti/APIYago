@@ -23,11 +23,18 @@ class ImageController {
         })
     }
 
+    buscarImagemPeloID(request, response) {
+        const id = request.params
+        database.select("*").table("imagem").where({id:id.id}).then(data => {
+            response.json(data);
+        }).catch(error => {
+            response.send(400);
+        })
+    }
+
     atualizarImagem(request, response){
         const id = request.params;
         const {referencia, titulo} = request.body;
-        console.log(referencia);
-        console.log(titulo);
         
         database.where({id:id.id}).update({referencia:referencia, titulo:titulo}).table("imagem").then(data=>{
             response.json({message:"Imagem atualizado com sucesso"})
