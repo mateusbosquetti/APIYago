@@ -29,7 +29,6 @@ class UserController {
     atualizarUsuario(request, response) {
         const id = request.params;
         const {nome} = request.body;
-
         database.where({id:id.id}).update({nome:nome}).table("usuario").then(data=>{
             response.json({message:"Usuário atualizado com sucesso"})
         }).catch(error=>{
