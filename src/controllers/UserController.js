@@ -10,7 +10,7 @@ class UserController {
 
         database.insert({nome, data_criacao}).table("usuario").then(data=>{
             console.log(data);
-            response.json({message: "Usuario criado com sucesso"})
+            response.send(201);
         }).catch(error=>{
             console.log(error)
             response.send(400);

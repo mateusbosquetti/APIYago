@@ -9,13 +9,18 @@
 const express = require('express'); 
 const cors = require('cors');
  
-const router = require('./src/routes/routes')
+const router = require('./src/routes/routes');
 
 const app = express();
 app.use(cors())
 app.use(express.json());
 app.use(router);
 
+app.listen(3000,() => {
+    console.log("API Rodando");
+})
+
+/*
 const musicas = [
     {
         id: 1,
@@ -27,11 +32,6 @@ const musicas = [
     }
 ];
 
-app.listen(3000,() => {
-    console.log("API Rodando");
-})
-
-/*
 //GET EXEMPLO
 app.get('/musica', (req, res) => {
     res.json(musicas);
@@ -179,5 +179,4 @@ app.get('/calculate-age/:birth_year', (req, res) => {
         {"age": resultado }
     );
 })
-
 */
